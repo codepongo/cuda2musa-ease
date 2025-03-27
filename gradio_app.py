@@ -13,7 +13,7 @@ title="Chat with DeepSeek Model"
 
 DEFAULT_SYSTEM = "You are a helpful assistant.Always enclose latex snippets with dollar signs! For example, $$\phi$$"
 
-model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype="auto", device_map="cuda")
+model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype="float16", device_map="cuda")
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 if tokenizer.pad_token_id is None:
     tokenizer.pad_token = tokenizer.eos_token
